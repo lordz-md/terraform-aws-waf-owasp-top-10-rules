@@ -11,7 +11,7 @@ output "rule01_sql_injection_rule" {
 
 output "rule02_auth_token_rule" {
   description = "AWS WAF Rule which blacklists bad/hijacked JWT tokens or session IDs."
-  value       = lower(var.target_scope) == "regional" ? (length(aws_wafregional_rule.owasp_02_auth_token_rule) > 0 aws_wafregional_rule.owasp_02_auth_token_rule.0 : null ) : (length(aws_waf_rule.owasp_02_auth_token_rule) > 0 ? aws_waf_rule.owasp_02_auth_token_rule.0 : null )
+  value       = lower(var.target_scope) == "regional" ? (length(aws_wafregional_rule.owasp_02_auth_token_rule) > 0 ? aws_wafregional_rule.owasp_02_auth_token_rule.0 : null ) : (length(aws_waf_rule.owasp_02_auth_token_rule) > 0 ? aws_waf_rule.owasp_02_auth_token_rule.0 : null )
 }
 
 output "rule03_xss_rule" {
@@ -21,12 +21,12 @@ output "rule03_xss_rule" {
 
 output "rule04_paths_rule" {
   description = "AWS WAF Rule which mitigates Path Traversal, LFI, RFI."
-  value       = lower(var.target_scope) == "regional" ? (length(aws_wafregional_rule.owasp_04_paths_rule) > 0 ? aws_wafregional_rule.owasp_04_paths_rule.0 : null : (length(aws_waf_rule.owasp_04_paths_rule) > 0 ? aws_waf_rule.owasp_04_paths_rule.0 : null )
+  value       = lower(var.target_scope) == "regional" ? (length(aws_wafregional_rule.owasp_04_paths_rule) > 0 ? aws_wafregional_rule.owasp_04_paths_rule.0 : null ) : (length(aws_waf_rule.owasp_04_paths_rule) > 0 ? aws_waf_rule.owasp_04_paths_rule.0 : null )
 }
 
 output "rule06_php_insecure_rule" {
   description = "AWS WAF Rule which mitigates PHP Specific Security Misconfigurations."
-  value       = lower(var.target_scope) == "regional" ? (length(aws_wafregional_rule.owasp_06_php_insecure_rule) > 0 ? aws_wafregional_rule.owasp_06_php_insecure_rule.0 : null : (length(aws_waf_rule.owasp_06_php_insecure_rule) > 0 ? aws_waf_rule.owasp_06_php_insecure_rule.0 : null )
+  value       = lower(var.target_scope) == "regional" ? (length(aws_wafregional_rule.owasp_06_php_insecure_rule) > 0 ? aws_wafregional_rule.owasp_06_php_insecure_rule.0 : null ) : (length(aws_waf_rule.owasp_06_php_insecure_rule) > 0 ? aws_waf_rule.owasp_06_php_insecure_rule.0 : null )
 }
 
 output "rule07_size_restriction_rule" {
