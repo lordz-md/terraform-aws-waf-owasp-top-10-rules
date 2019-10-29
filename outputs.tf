@@ -1,11 +1,11 @@
 output "rule_group" {
   description = "AWS WAF Rule Group which contains all rules for OWASP Top 10 protection."
-  value       = lower(var.target_scope) == "regional" ? aws_wafregional_rule.owasp_01_sql_injection_rule.0 : aws_waf_rule.owasp_01_sql_injection_rule.0
+  value       = (lower(var.target_scope) == "regional") ? aws_wafregional_rule.owasp_01_sql_injection_rule.0 : aws_waf_rule.owasp_01_sql_injection_rule.0
 }
 
 output "rule01_sql_injection_rule" {
   description = "AWS WAF Rule which mitigates SQL Injection Attacks."
-  value       = lower(var.target_scope) == "regional" ? aws_wafregional_rule.owasp_01_sql_injection_rule.0 , aws_waf_rule.owasp_01_sql_injection_rule.0
+  value       = lower(var.target_scope) == "regional" ? aws_wafregional_rule.owasp_01_sql_injection_rule.0 : aws_waf_rule.owasp_01_sql_injection_rule.0
 }
 
 output "rule02_auth_token_rule" {
